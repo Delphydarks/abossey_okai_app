@@ -1,9 +1,9 @@
 import { LocalGasStation } from "@material-ui/icons";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import auth  from './firebase'
-import auth from 'firebase'
-// import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
+
+// import auth from 'firebase'
+import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 import "./Login.css";
 
 function Login() {
@@ -16,28 +16,28 @@ function Login() {
     //   firebase
   };
 
-  // const register = (e) => {
-  //   e.preventDefault();
-  //   //console.log(email);
-  //   const auth = getAuth();
-  //   createUserWithEmailAndPassword(auth,email, password)
-  //     .then((userCredential) => {
-  //       const user= userCredential.user;
-  //       console.log(userCredential);
-  //     })
-  //     .catch(error => alert(error.message));
-  // };
-  const register = (e) => { 
+  const register = (e) => {
     e.preventDefault();
     //console.log(email);
-    auth
-    .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-       
-        console.log(auth);
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth,email, password)
+      .then((userCredential) => {
+        const user= userCredential.user;
+        console.log(user);
       })
       .catch(error => alert(error.message));
   };
+  // const register = (e) => { 
+  //   e.preventDefault();
+  //   //console.log(email);
+  //   auth
+  //   .createUserWithEmailAndPassword(email, password)
+  //     .then((auth) => {
+       
+  //       console.log(auth);
+  //     })
+  //     .catch(error => alert(error.message));
+  // };
 
   return (
     <div className="login">

@@ -4,6 +4,7 @@ import Home from "./Home";
 import Checkout from "./Checkout";
 import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {app}  from './firebase'
 
 function App() {
   return (
